@@ -1,0 +1,6 @@
+[package]
+name = "carnet_adresses"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]

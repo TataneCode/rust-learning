@@ -1,0 +1,6 @@
+[package]
+name = "calcutrice_menu"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]

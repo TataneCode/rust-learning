@@ -1,0 +1,3 @@
+# Application Configuration
+[app]
+csv_file_path = "uspop.csv"
