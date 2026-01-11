@@ -1,0 +1,19 @@
+[workspace]
+resolver = "2"
+
+members = [
+    "lesson-01/bonjour_rust",
+    "lesson-01/calculatrice",
+    "lesson-01/num_find",
+    "lesson-02/calcul_tva",
+    "lesson-02/char_test",
+    "lesson-02/fahrenheit_converter",
+    "lesson-03/calcutrice_menu",
+    "lesson-03/fizzbuzz",
+    "lesson-03/table_multiplication",
+    "lesson-03/validateur_mot_de_passe",
+    "lesson-04/carnet_adresses",
+    "lesson-04/challenge",
+    "lesson-04/csvtutor",
+    "lesson-05/bibliotheque",
+]
