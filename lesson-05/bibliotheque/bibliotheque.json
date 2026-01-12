@@ -1,51 +1,59 @@
-[
-  {
-    "id": 1,
-    "prenom": "Stefen",
-    "nom": "King",
-    "livres": [
-      {
-        "id": 4,
-        "titre": "Ca",
-        "auteur_id": 1,
-        "annee": 1990,
-        "emprunte": false
-      },
-      {
-        "id": 5,
-        "titre": "Billy Summers",
-        "auteur_id": 1,
-        "annee": 2020,
-        "emprunte": false
-      }
-    ]
-  },
-  {
-    "id": 2,
-    "prenom": "Gustave",
-    "nom": "Flaubert",
-    "livres": [
-      {
-        "id": 2,
-        "titre": "Salambo",
-        "auteur_id": 2,
-        "annee": 1840,
-        "emprunte": false
-      }
-    ]
-  },
-  {
-    "id": 3,
-    "prenom": "Edward-Philip",
-    "nom": "Lovecraft",
-    "livres": [
-      {
-        "id": 1,
-        "titre": "Démons et merveilles",
-        "auteur_id": 3,
-        "annee": 1860,
-        "emprunte": false
-      }
-    ]
-  }
-]
+{
+  "livres": [
+    {
+      "id": 1,
+      "titre": "Simetierre",
+      "auteur_id": 1,
+      "annee": 1993,
+      "emprunte": false
+    },
+    {
+      "id": 2,
+      "titre": "Billy Summers",
+      "auteur_id": 1,
+      "annee": 2020,
+      "emprunte": false
+    },
+    {
+      "id": 3,
+      "titre": "Salambo",
+      "auteur_id": 2,
+      "annee": 1870,
+      "emprunte": false
+    },
+    {
+      "id": 4,
+      "titre": "Démons et merveilles",
+      "auteur_id": 3,
+      "annee": 1927,
+      "emprunte": false
+    }
+  ],
+  "auteurs": [
+    {
+      "id": 1,
+      "prenom": "Stefen",
+      "nom": "King",
+      "livres": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": 2,
+      "prenom": "Gustave",
+      "nom": "Flaubert",
+      "livres": [
+        3
+      ]
+    },
+    {
+      "id": 3,
+      "prenom": "HP",
+      "nom": "Lovecraft",
+      "livres": [
+        4
+      ]
+    }
+  ]
+}

@@ -1,7 +1,11 @@
-use crate::models::{Livre, Auteur};
+use serde::Deserialize;
+use serde::Serialize;
+
+use crate::models::{Auteur, Livre};
 use std::fs;
 use std::io;
 
+#[derive(Serialize, Deserialize)]
 pub struct Bibliotheque {
     livres: Vec<Livre>,
     auteurs: Vec<Auteur>,
@@ -14,7 +18,7 @@ impl Bibliotheque {
             auteurs: Vec::new(),
         }
     }
-    
+
     // MUTABILITÉ: &mut self car on modifie le Vec interne
     // OWNERSHIP: `livre` est MOVE dans cette fonction (pas de &)
     // puis MOVE dans le Vec via push - très efficace, pas de copie!
@@ -22,7 +26,7 @@ impl Bibliotheque {
         self.livres.push(livre);
         println!("Livre ajouté avec succès");
     }
-    
+
     // LIFETIME: &self a un lifetime implicite qui garantit que la référence
     // est valide pendant tout l'appel de la fonction
     // OWNERSHIP: Emprunt immuable - on lit sans modifier ni prendre ownership
@@ -41,7 +45,7 @@ impl Bibliotheque {
             livre.afficher();
         }
     }
-    
+
     // MUTABILITÉ: &mut self car on va modifier un Livre dans le Vec
     pub fn emprunter_livre(&mut self, id: u32) -> Result<(), String> {
         // MUTABILITÉ: iter_mut() retourne un itérateur de &mut Livre
@@ -62,7 +66,7 @@ impl Bibliotheque {
             None => Err(String::from("Livre non trouvé")),
         }
     }
-    
+
     // Même pattern que emprunter_livre
     // MUTABILITÉ: &mut self + iter_mut() pour modifier un Livre
     pub fn retourner_livre(&mut self, id: u32) -> Result<(), String> {
@@ -92,7 +96,7 @@ impl Bibliotheque {
 
         println!("\n=== Auteurs ===");
         for auteur in &self.auteurs {
-            auteur.afficher();
+            self.afficher_auteur(auteur);
         }
     }
 
@@ -101,22 +105,25 @@ impl Bibliotheque {
     }
 
     pub fn associer_livre_auteur(&mut self, livre_id: u32, auteur_id: u32) -> Result<(), String> {
-        let livre = self.livres.iter()
+        let livre = self
+            .livres
+            .iter()
             .find(|l| l.id == livre_id)
             .ok_or_else(|| String::from("Livre non trouvé"))?
             .clone();
 
-        let auteur = self.trouver_auteur_mut(auteur_id)
+        let auteur = self
+            .trouver_auteur_mut(auteur_id)
             .ok_or_else(|| String::from("Auteur non trouvé"))?;
 
-        auteur.add_livre(livre);
+        auteur.add_livre(livre.id);
         Ok(())
     }
 
     pub fn sauvegarder(&self, fichier: &str) -> io::Result<()> {
         // OWNERSHIP: to_string_pretty emprunte &self.livres et retourne une
         // nouvelle String dont on prend ownership
-        let json = serde_json::to_string_pretty(&self.auteurs)?;
+        let json = serde_json::to_string_pretty(&self)?;
 
         // OWNERSHIP: `json` est MOVE dans fs::write (String implements AsRef<[u8]>)
         fs::write(fichier, json)?;
@@ -128,16 +135,33 @@ impl Bibliotheque {
     // Pas de &self car c'est une fonction associée (constructeur alternatif)
     pub fn charger(fichier: &str) -> io::Result<Self> {
         let contenu = fs::read_to_string(fichier)?;
-        let auteurs: Vec<Auteur> = serde_json::from_str(&contenu)?;
-        let livres: Vec<Livre> = auteurs
-            .iter()
-            .flat_map(|auteur| auteur.livres.clone())
-            .collect();
+        let bibliotheque: Bibliotheque = serde_json::from_str(&contenu)?;
 
         println!("Bibliothèque chargée depuis {}", fichier);
-        Ok(Bibliotheque {
-            livres,
-            auteurs,
-        })
+        Ok(bibliotheque)
+    }
+
+    fn afficher_auteur(&self, auteur: &Auteur) {
+        println!("Auteur #{} - {} {}", auteur.id, auteur.prenom, auteur.nom);
+        if auteur.livres.is_empty() {
+            println!("  Aucun livre");
+        } else {
+            println!("  Livres:");
+            for &livre_id in &auteur.livres {
+                match self.livres.iter().find(|x| x.id == livre_id) {
+                    Some(livre) => println!("    - {} ({})", livre.titre, livre.annee),
+                    None => println!("Error searching livre_id"),
+                }
+            }
+        }
+    }
+
+    // Méthodes publiques pour accéder aux données (pour l'interface TUI)
+    pub fn get_livres(&self) -> &Vec<Livre> {
+        &self.livres
+    }
+
+    pub fn get_auteurs(&self) -> &Vec<Auteur> {
+        &self.auteurs
     }
 }
