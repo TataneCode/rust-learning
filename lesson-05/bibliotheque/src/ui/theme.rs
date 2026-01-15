@@ -1,18 +1,38 @@
-use cursive::theme::{BaseColor, Color, PaletteColor, Theme};
+use ratatui::style::Color;
 
-pub fn setup_theme() -> Theme {
-    let mut theme = Theme::default();
+// Couleurs du thème de l'application
+pub struct AppTheme;
 
-    // Couleurs plus douces et professionnelles
-    theme.palette[PaletteColor::Background] = Color::TerminalDefault;
-    theme.palette[PaletteColor::View] = Color::TerminalDefault;
-    theme.palette[PaletteColor::Primary] = Color::Dark(BaseColor::Cyan);
-    theme.palette[PaletteColor::Secondary] = Color::Dark(BaseColor::Blue);
-    theme.palette[PaletteColor::Tertiary] = Color::Dark(BaseColor::White);
-    theme.palette[PaletteColor::TitlePrimary] = Color::Light(BaseColor::Cyan);
-    theme.palette[PaletteColor::TitleSecondary] = Color::Light(BaseColor::Blue);
-    theme.palette[PaletteColor::Highlight] = Color::Dark(BaseColor::Cyan);
-    theme.palette[PaletteColor::HighlightInactive] = Color::Dark(BaseColor::Blue);
+impl AppTheme {
+    // Couleurs principales
+    pub const PRIMARY: Color = Color::Cyan;
+    pub const SECONDARY: Color = Color::Blue;
+    pub const ACCENT: Color = Color::LightCyan;
 
-    theme
+    // Couleurs de statut
+    pub const SUCCESS: Color = Color::Green;
+    pub const ERROR: Color = Color::Red;
+    pub const WARNING: Color = Color::Yellow;
+
+    // Couleurs neutres
+    pub const BG: Color = Color::Reset;
+    pub const FG: Color = Color::White;
+    pub const DIM: Color = Color::DarkGray;
+
+    // Couleurs sémantiques pour les livres
+    pub const AVAILABLE: Color = Color::Green;
+    pub const BORROWED: Color = Color::Red;
+
+    // Couleurs pour les bordures et titres
+    pub const BORDER_ACTIVE: Color = Color::Cyan;
+    pub const BORDER_INACTIVE: Color = Color::Blue;
+    pub const TITLE: Color = Color::Cyan;
+}
+
+// Constantes pour les symboles
+pub mod symbols {
+    pub const BULLET_EMPTY: &str = "○";
+    pub const BULLET_FILLED: &str = "●";
+    pub const TREE_BRANCH: &str = "└─";
+    pub const SELECTOR: &str = ">";
 }

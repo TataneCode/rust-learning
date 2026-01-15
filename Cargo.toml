@@ -15,5 +15,5 @@ members = [
     "lesson-04/carnet_adresses",
     "lesson-04/challenge",
     "lesson-04/csvtutor",
-    "lesson-05/bibliotheque",
+    "lesson-05/bibliotheque", "lesson-05/hello-tui",
 ]

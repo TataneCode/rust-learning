@@ -1,59 +1,84 @@
 {
   "livres": [
-    {
-      "id": 1,
-      "titre": "Simetierre",
-      "auteur_id": 1,
-      "annee": 1993,
-      "emprunte": false
-    },
-    {
-      "id": 2,
-      "titre": "Billy Summers",
-      "auteur_id": 1,
-      "annee": 2020,
-      "emprunte": false
-    },
-    {
-      "id": 3,
-      "titre": "Salambo",
-      "auteur_id": 2,
-      "annee": 1870,
-      "emprunte": false
-    },
-    {
-      "id": 4,
-      "titre": "Démons et merveilles",
-      "auteur_id": 3,
-      "annee": 1927,
-      "emprunte": false
-    }
+    {"id": 1, "titre": "Le Seigneur des Anneaux", "auteur_id": 1, "annee": 1954, "emprunte": false},
+    {"id": 2, "titre": "Le Hobbit", "auteur_id": 1, "annee": 1937, "emprunte": true},
+    {"id": 3, "titre": "Le Silmarillion", "auteur_id": 1, "annee": 1977, "emprunte": false},
+    {"id": 4, "titre": "Les Contes et Légendes inachevés", "auteur_id": 1, "annee": 1980, "emprunte": false},
+    {"id": 5, "titre": "Les Enfants de Húrin", "auteur_id": 1, "annee": 2007, "emprunte": true},
+    {"id": 6, "titre": "1984", "auteur_id": 2, "annee": 1949, "emprunte": true},
+    {"id": 7, "titre": "La Ferme des Animaux", "auteur_id": 2, "annee": 1945, "emprunte": false},
+    {"id": 8, "titre": "Hommage à la Catalogne", "auteur_id": 2, "annee": 1938, "emprunte": false},
+    {"id": 9, "titre": "Les Misérables", "auteur_id": 3, "annee": 1862, "emprunte": false},
+    {"id": 10, "titre": "Notre-Dame de Paris", "auteur_id": 3, "annee": 1831, "emprunte": false},
+    {"id": 11, "titre": "Les Contemplations", "auteur_id": 3, "annee": 1856, "emprunte": true},
+    {"id": 12, "titre": "Les Travailleurs de la mer", "auteur_id": 3, "annee": 1866, "emprunte": false},
+    {"id": 13, "titre": "Quatre-vingt-treize", "auteur_id": 3, "annee": 1874, "emprunte": false},
+    {"id": 14, "titre": "Harry Potter à l'école des sorciers", "auteur_id": 4, "annee": 1997, "emprunte": false},
+    {"id": 15, "titre": "Harry Potter et la Chambre des secrets", "auteur_id": 4, "annee": 1998, "emprunte": true},
+    {"id": 16, "titre": "Harry Potter et le Prisonnier d'Azkaban", "auteur_id": 4, "annee": 1999, "emprunte": false},
+    {"id": 17, "titre": "Harry Potter et la Coupe de feu", "auteur_id": 4, "annee": 2000, "emprunte": false},
+    {"id": 18, "titre": "Harry Potter et l'Ordre du Phénix", "auteur_id": 4, "annee": 2003, "emprunte": true},
+    {"id": 19, "titre": "Harry Potter et le Prince de sang-mêlé", "auteur_id": 4, "annee": 2005, "emprunte": false},
+    {"id": 20, "titre": "Harry Potter et les Reliques de la Mort", "auteur_id": 4, "annee": 2007, "emprunte": false},
+    {"id": 21, "titre": "Le Petit Prince", "auteur_id": 5, "annee": 1943, "emprunte": false},
+    {"id": 22, "titre": "Vol de nuit", "auteur_id": 5, "annee": 1931, "emprunte": false},
+    {"id": 23, "titre": "Terre des hommes", "auteur_id": 5, "annee": 1939, "emprunte": true},
+    {"id": 24, "titre": "Fondation", "auteur_id": 6, "annee": 1951, "emprunte": true},
+    {"id": 25, "titre": "Les Robots", "auteur_id": 6, "annee": 1950, "emprunte": false},
+    {"id": 26, "titre": "Fondation et Empire", "auteur_id": 6, "annee": 1952, "emprunte": false},
+    {"id": 27, "titre": "Seconde Fondation", "auteur_id": 6, "annee": 1953, "emprunte": false},
+    {"id": 28, "titre": "Les Cavernes d'acier", "auteur_id": 6, "annee": 1954, "emprunte": true},
+    {"id": 29, "titre": "Face aux feux du soleil", "auteur_id": 6, "annee": 1957, "emprunte": false},
+    {"id": 30, "titre": "Le Comte de Monte-Cristo", "auteur_id": 7, "annee": 1844, "emprunte": false},
+    {"id": 31, "titre": "Les Trois Mousquetaires", "auteur_id": 7, "annee": 1844, "emprunte": true},
+    {"id": 32, "titre": "Vingt ans après", "auteur_id": 7, "annee": 1845, "emprunte": false},
+    {"id": 33, "titre": "La Reine Margot", "auteur_id": 7, "annee": 1845, "emprunte": false},
+    {"id": 34, "titre": "Vingt Mille Lieues sous les mers", "auteur_id": 8, "annee": 1870, "emprunte": false},
+    {"id": 35, "titre": "Voyage au centre de la Terre", "auteur_id": 8, "annee": 1864, "emprunte": false},
+    {"id": 36, "titre": "Le Tour du monde en 80 jours", "auteur_id": 8, "annee": 1872, "emprunte": true},
+    {"id": 37, "titre": "De la Terre à la Lune", "auteur_id": 8, "annee": 1865, "emprunte": false},
+    {"id": 38, "titre": "Autour de la Lune", "auteur_id": 8, "annee": 1870, "emprunte": false},
+    {"id": 39, "titre": "L'Île mystérieuse", "auteur_id": 8, "annee": 1875, "emprunte": true},
+    {"id": 40, "titre": "Dune", "auteur_id": 9, "annee": 1965, "emprunte": false},
+    {"id": 41, "titre": "Le Messie de Dune", "auteur_id": 9, "annee": 1969, "emprunte": false},
+    {"id": 42, "titre": "Les Enfants de Dune", "auteur_id": 9, "annee": 1976, "emprunte": true},
+    {"id": 43, "titre": "L'Empereur-Dieu de Dune", "auteur_id": 9, "annee": 1981, "emprunte": false},
+    {"id": 44, "titre": "L'Étranger", "auteur_id": 10, "annee": 1942, "emprunte": false},
+    {"id": 45, "titre": "La Peste", "auteur_id": 10, "annee": 1947, "emprunte": true},
+    {"id": 46, "titre": "La Chute", "auteur_id": 10, "annee": 1956, "emprunte": false},
+    {"id": 47, "titre": "Le Mythe de Sisyphe", "auteur_id": 10, "annee": 1942, "emprunte": false},
+    {"id": 48, "titre": "Germinal", "auteur_id": 11, "annee": 1885, "emprunte": false},
+    {"id": 49, "titre": "L'Assommoir", "auteur_id": 11, "annee": 1877, "emprunte": true},
+    {"id": 50, "titre": "Nana", "auteur_id": 11, "annee": 1880, "emprunte": false},
+    {"id": 51, "titre": "Au Bonheur des Dames", "auteur_id": 11, "annee": 1883, "emprunte": false},
+    {"id": 52, "titre": "Madame Bovary", "auteur_id": 12, "annee": 1857, "emprunte": false},
+    {"id": 53, "titre": "L'Éducation sentimentale", "auteur_id": 12, "annee": 1869, "emprunte": true},
+    {"id": 54, "titre": "Salammbô", "auteur_id": 12, "annee": 1862, "emprunte": false},
+    {"id": 55, "titre": "Le Rouge et le Noir", "auteur_id": 13, "annee": 1830, "emprunte": false},
+    {"id": 56, "titre": "La Chartreuse de Parme", "auteur_id": 13, "annee": 1839, "emprunte": true},
+    {"id": 57, "titre": "Le Père Goriot", "auteur_id": 14, "annee": 1835, "emprunte": false},
+    {"id": 58, "titre": "Eugénie Grandet", "auteur_id": 14, "annee": 1833, "emprunte": false},
+    {"id": 59, "titre": "La Peau de chagrin", "auteur_id": 14, "annee": 1831, "emprunte": true},
+    {"id": 60, "titre": "Illusions perdues", "auteur_id": 14, "annee": 1843, "emprunte": false},
+    {"id": 61, "titre": "Fondation foudroyée", "auteur_id": 6, "annee": 1982, "emprunte": false},
+    {"id": 62, "titre": "Terre et Fondation", "auteur_id": 6, "annee": 1986, "emprunte": false},
+    {"id": 63, "titre": "Prélude à Fondation", "auteur_id": 6, "annee": 1988, "emprunte": true},
+    {"id": 64, "titre": "L'Aube de Fondation", "auteur_id": 6, "annee": 1993, "emprunte": false}
   ],
   "auteurs": [
-    {
-      "id": 1,
-      "prenom": "Stefen",
-      "nom": "King",
-      "livres": [
-        1,
-        2
-      ]
-    },
-    {
-      "id": 2,
-      "prenom": "Gustave",
-      "nom": "Flaubert",
-      "livres": [
-        3
-      ]
-    },
-    {
-      "id": 3,
-      "prenom": "HP",
-      "nom": "Lovecraft",
-      "livres": [
-        4
-      ]
-    }
+    {"id": 1, "prenom": "John Ronald Reuel", "nom": "Tolkien", "livres": [1, 2, 3, 4, 5]},
+    {"id": 2, "prenom": "George", "nom": "Orwell", "livres": [6, 7, 8]},
+    {"id": 3, "prenom": "Victor", "nom": "Hugo", "livres": [9, 10, 11, 12, 13]},
+    {"id": 4, "prenom": "Joanne", "nom": "Rowling", "livres": [14, 15, 16, 17, 18, 19, 20]},
+    {"id": 5, "prenom": "Antoine", "nom": "de Saint-Exupéry", "livres": [21, 22, 23]},
+    {"id": 6, "prenom": "Isaac", "nom": "Asimov", "livres": [24, 25, 26, 27, 28, 29, 61, 62, 63, 64]},
+    {"id": 7, "prenom": "Alexandre", "nom": "Dumas", "livres": [30, 31, 32, 33]},
+    {"id": 8, "prenom": "Jules", "nom": "Verne", "livres": [34, 35, 36, 37, 38, 39]},
+    {"id": 9, "prenom": "Frank", "nom": "Herbert", "livres": [40, 41, 42, 43]},
+    {"id": 10, "prenom": "Albert", "nom": "Camus", "livres": [44, 45, 46, 47]},
+    {"id": 11, "prenom": "Émile", "nom": "Zola", "livres": [48, 49, 50, 51]},
+    {"id": 12, "prenom": "Gustave", "nom": "Flaubert", "livres": [52, 53, 54]},
+    {"id": 13, "prenom": "Stendhal", "nom": "", "livres": [55, 56]},
+    {"id": 14, "prenom": "Honoré", "nom": "de Balzac", "livres": [57, 58, 59, 60]}
   ]
 }
