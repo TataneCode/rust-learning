@@ -1,5 +1,6 @@
-use std::collections::HashMap;
+use std::{collections::HashMap, fs};
 
+/// Trait storage
 pub trait Storage {
     fn save(&mut self, key: &str, value: &str) -> Result<(), String>;
     fn load(&self, key: &str) -> Result<String, String>;
@@ -10,8 +11,8 @@ pub struct MemoryStorage {
     map: HashMap<String, String>,
 }
 
-pub struct  FileStorage {
-
+pub struct FileStorage {
+    base_directory: String,
 }
 
 impl MemoryStorage {
@@ -23,19 +24,25 @@ impl MemoryStorage {
 }
 
 impl FileStorage {
-    pub fn new() -> Self {
-        FileStorage {}
+    pub fn new(directory: String) -> Self {
+        FileStorage {
+            base_directory: directory,
+        }
+    }
+
+    fn get_path(&self, key: &str) -> String {
+        format!("{}/{}.txt", self.base_directory, key)
     }
 }
 
 impl Storage for MemoryStorage {
     fn save(&mut self, key: &str, value: &str) -> Result<(), String> {
-      if self.map.contains_key(key) {                                                                                                                                                   
-          Err(format!("Clé '{}' existe déjà", key))                                                                                                                                     
-      } else {                                                                                                                                                                         
-          self.map.insert(key.to_string(), value.to_string());                                                                                                                          
-          Ok(())                                                                                                                                                                        
-      }
+        if self.map.contains_key(key) {
+            Err(format!("Clé '{}' existe déjà", key))
+        } else {
+            self.map.insert(key.to_string(), value.to_string());
+            Ok(())
+        }
     }
 
     fn load(&self, key: &str) -> Result<String, String> {
@@ -55,14 +62,17 @@ impl Storage for MemoryStorage {
 
 impl Storage for FileStorage {
     fn save(&mut self, key: &str, value: &str) -> Result<(), String> {
-        todo!()
+        let path = self.get_path(key);
+        fs::write(&path, value).map_err(|error| format!("Sauvegarde en erreur : {}", error))
     }
 
     fn load(&self, key: &str) -> Result<String, String> {
-        todo!()
+        let path = self.get_path(key);
+        fs::read_to_string(path).map_err(|error| format!("Impossible de lire : {}", error))
     }
 
     fn delete(&mut self, key: &str) -> Result<(), String> {
-        todo!()
+        let path = self.get_path(key);
+        fs::remove_file(path).map_err(|error| format!("Impossible de supprimer : {}", error))
     }
 }

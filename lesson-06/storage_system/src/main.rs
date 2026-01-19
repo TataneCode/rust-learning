@@ -1,4 +1,4 @@
-use crate::models::storage::{MemoryStorage, Storage};
+use crate::models::storage::{FileStorage, MemoryStorage, Storage};
 
 mod models;
 
@@ -6,26 +6,31 @@ fn main() {
     println!("Hello, tests for traits !");
 
     let memory = MemoryStorage::new();
+    let file = FileStorage::new(".".to_string());
 
+    println!("*** Proceed with memory ***");
     proceed(memory);
+
+    println!("*** Proceed with file ***");
+    proceed(file);
 }
 
-fn proceed(mut memory: MemoryStorage) {
-    add_key(&mut memory, "1", "1");
-    add_key(&mut memory, "2", "2");
-    add_key(&mut memory, "1", "2");
+fn proceed<T: Storage>(mut storage: T) {
+    add_key(&mut storage, "1", "1");
+    add_key(&mut storage, "2", "2");
+    add_key(&mut storage, "1", "2");
 
-    show_value(&memory, "1");
-    show_value(&memory, "2");
-    show_value(&memory, "3");
+    show_value(&storage, "1");
+    show_value(&storage, "2");
+    show_value(&storage, "3");
 
-    delete_value(&mut memory, "1");
-    delete_value(&mut memory, "3");
+    delete_value(&mut storage, "1");
+    delete_value(&mut storage, "3");
 }
 
-fn add_key<T: Storage>(memory: &mut T, key: &str, value: &str) {
+fn add_key<T: Storage>(storage: &mut T, key: &str, value: &str) {
     println!("Ajout valeur {} - {}", key, value);
-    match memory.save(key, value) {
+    match storage.save(key, value) {
         Err(error) => println!("{}", error),
         Ok(_) => println!("Réussi"),
     }
