@@ -76,3 +76,40 @@ impl Storage for FileStorage {
         fs::remove_file(path).map_err(|error| format!("Impossible de supprimer : {}", error))
     }
 }
+
+
+
+pub struct MockStorage {
+    should_succeed: bool,
+}
+
+impl MockStorage {
+    pub fn new(should_succeed: bool) -> MockStorage {
+        MockStorage { should_succeed }
+    }
+
+    
+}
+
+impl Storage for MockStorage {
+    fn save(&mut self, key: &str, value: &str) -> Result<(), String> {
+        match self.should_succeed {
+            true => Ok(()),
+            _ => Err(format!("Save échoué pour index '{}' avec value '{}'", key, value)),
+        }
+    }
+
+    fn load(&self, key: &str) -> Result<String, String> {
+        match self.should_succeed {
+            true => Ok(format!("Valeur 'mock' pour la clef '{}'", key)),
+            _ => Err(format!("load échoué pour index '{}'", key))
+        }
+    }
+
+    fn delete(&mut self, key: &str) -> Result<(), String> {
+        match self.should_succeed {
+            true => Ok(()),
+            _ => Err(format!("delete échoué pour index '{}'", key))
+        }
+    }
+}
